@@ -7,7 +7,10 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain, SequentialChain
 from langchain.memory import ConversationBufferMemory
 
-os.environ['OPENAI_API_KEY'] = apikey
+# os.environ['OPENAI_API_KEY'] = apikey
+# os.environ['OPENAI_API_KEY'] = apikey
+
+os.environ['OPENAI_API_KEY'] = os.getenv('MY_API_KEY')
 
 st.title('Recipe Generator')
 
