@@ -59,7 +59,9 @@ button = st.button('Generate Recipe')
 
 if button:
     print(preferredIngrediants)
-    response = recipe_chain.run(recipe_characterisitcs = preferredIngrediants)
+    with st.spinner('Generating the recipe...'):
+        response = recipe_chain.run(recipe_characterisitcs = preferredIngrediants)
+    # response = recipe_chain.run(recipe_characterisitcs = preferredIngrediants)
     # st.write(response)
 
     # print(response) # returned as string 
