@@ -43,11 +43,11 @@ recipe_template = PromptTemplate(
 )
 
 # we are limiting maximum tokens to 180 to control cost
-llm = OpenAI(temperature=0.9, max_tokens=180)
+llm = OpenAI(temperature=0.9, max_tokens=500)
 
 # single chain as of now. 
 # We can keep the history of our calls. Not used yet. 
-recipe_chain = LLMChain(llm = llm, prompt=recipe_template, verbose=True, memory=ConversationBufferMemory(max_len=400))
+recipe_chain = LLMChain(llm = llm, prompt=recipe_template, verbose=True, memory=ConversationBufferMemory(max_len=800))
   
 # create a string to pass to the chain from the above variables
 preferredIngrediants = 'Preferred Ingredients: ' + preferredIngrediants + '\n' + 'Calorie Range: ' + str(calorie_limit) + '\n' + 'Allergic Ingredients: ' + alergic_ingrediants + '\n' + 'Meal Type: ' + meal_type + '\n' + 'Cooking Time: ' + str(cooking_time) + '\n' + 'Dietary Preference: ' + dietary_preference + '\n' + 'Serving Size: ' + str(serving_size) + '\n' + 'Nutrition Needs: ' + nuitrition_needs + '\n' + 'Cuisine Type: ' + cuisin_type + '\n' + 'Skill Level: ' + skill_level + '\n'
