@@ -14,18 +14,20 @@ os.environ['OPENAI_API_KEY'] = os.getenv('MY_API_KEY')
 
 st.title('Recipe Generator')
 
-preferredIngrediants = st.text_input('Enter a prompt for the recipe generator:')
+
+preferredIngrediants = st.text_input('Enter key ingredients:', "Any")
 calorie_limit = st.number_input('Calorie Limit (in cals)', min_value=0, max_value=5000, value=400)
 
-alergic_ingrediants = st.text_input('Enter any alergic ingrediants:')
-meal_type = st.selectbox('Meal Type', ('Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'))
+alergic_ingrediants = st.text_input('Enter any alergic ingrediants:', "default value")
+meal_type = st.selectbox('Meal Type', ('Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'), index=0)
 
 cooking_time = st.number_input('Cooking Time (in minutes)', min_value=0, max_value=200, value=30)
 serving_size = st.number_input('Serving Size', min_value=0, max_value=8, value=1)
-dietary_preference = st.selectbox('Dietary Preference', ('None', 'Vegan', 'Vegetarian', 'Ketogenic', 'Paleo', 'Primal', 'Whole30'))
-nuitrition_needs = st.selectbox('Nuitrition Needs', ('None', 'Balanced', 'High-Protein', 'Low-Fat', 'Low-Carb'))
-cuisin_type = st.text_input('Cuisin Type:')
-skill_level = st.selectbox('Skill Level', ('Beginner', 'Intermediate', 'Advanced'))
+dietary_preference = st.selectbox('Dietary Preference', ('None', 'Vegan', 'Vegetarian', 'Ketogenic', 'Paleo', 'Primal', 'Whole30'), index=0)
+nuitrition_needs = st.selectbox('Nuitrition Needs', ('None', 'Balanced', 'High-Protein', 'Low-Fat', 'Low-Carb'), index=0)
+cuisin_type = st.selectbox('Meal Type', ('None', 'Italian', 'Chinese', 'Indian', 'Continental'), index=0)
+skill_level = st.selectbox('Skill Level', ('Beginner', 'Intermediate', 'Advanced'), index=0)
+
 
 
 # our prompt that will be sent to LLM
