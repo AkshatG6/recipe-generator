@@ -15,11 +15,11 @@ os.environ['OPENAI_API_KEY'] = os.getenv('MY_API_KEY')
 st.title('Recipe Generator')
 
 
-preferredIngrediants = st.text_input('Enter key ingredients:', "Any")
+preferredIngrediants = st.text_input('Enter a prompt for the recipe generator*:', help="Eg. Chicken, Rice, Tomato, etc.", placeholder= "Eg. Chicken, Rice, Tomato, etc.", value="")
 calorie_limit = st.number_input('Calorie Limit (in cals)', min_value=0, max_value=5000, value=400)
 
-alergic_ingrediants = st.text_input('Enter any alergic ingrediants:', "default value")
-meal_type = st.selectbox('Meal Type', ('Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'), index=0)
+alergic_ingrediants = st.text_input('Enter any alergic ingrediants:', "none", help = "Eg. Nuts, Dairy, etc.")
+meal_type = st.selectbox('Meal Type', ('Select a meal type...', 'Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'), index=0)
 
 cooking_time = st.number_input('Cooking Time (in minutes)', min_value=0, max_value=200, value=30)
 serving_size = st.number_input('Serving Size', min_value=0, max_value=8, value=1)
